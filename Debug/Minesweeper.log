@@ -1,0 +1,16 @@
+﻿Build started 2016/4/18 22:58:56.
+     1>Project "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Minesweeper.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/include/" /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt project3\game.cpp
+         game.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Debug\Minesweeper.exe" /INCREMENTAL /NOLOGO "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glew32.lib" "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glfw3dll.lib" "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\freeglut.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Debug\Minesweeper.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Debug\Minesweeper.lib" /MACHINE:X86 Debug\game.obj
+         Debug\main.obj
+         Debug\printer.obj
+         Debug\subWindow.obj
+         Minesweeper.vcxproj -> C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Debug\Minesweeper.exe
+     1>Done Building Project "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Minesweeper.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.42

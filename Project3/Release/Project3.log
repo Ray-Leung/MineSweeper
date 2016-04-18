@@ -1,0 +1,52 @@
+﻿Build started 2016/4/9 21:56:11.
+     1>Project "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Project3\Project3.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/include/" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp main.cpp printer.cpp
+         game.cpp
+         main.cpp
+     1>main.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         printer.cpp
+     1>printer.cpp(11): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(12): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(13): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(14): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(18): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(19): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(20): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(21): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(25): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(26): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(27): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(28): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(37): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(38): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(39): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(40): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(44): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(49): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(50): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(51): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(87): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(99): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+     1>printer.cpp(109): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(110): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(111): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(112): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(116): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(117): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(118): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+     1>printer.cpp(119): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Release\minesweeper.exe" /NOLOGO "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glew32.lib" "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\glfw3dll.lib" "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/lib/Win32\freeglut.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Release\minesweeper.pdb" /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Release\minesweeper.lib" /MACHINE:X86 /SAFESEH Release\game.obj
+         Release\main.obj
+         Release\printer.obj
+         Generating code
+         All 35 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+         Finished generating code
+         Project3.vcxproj -> C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Release\minesweeper.exe
+     1>Done Building Project "C:\Users\Administrator\Documents\Visual Studio 2015\Projects\Project3\Project3\Project3.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:13.67
