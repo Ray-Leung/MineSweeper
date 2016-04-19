@@ -16,7 +16,7 @@ public:
 	Game(int);
 	Game();
 	std::vector<std::vector<int>> mines;
-	void draw(int sec);
+	void draw(float sec);
 	void open(int x, int y);
 	void mark(int x, int y);
 	bool gameState();

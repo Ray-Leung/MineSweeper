@@ -44,13 +44,52 @@ void Printer::drawFlag(int x, int y)
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINES);
 	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, (y + 2) * CELL_HEIGHT - 3 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, (y + 1) * CELL_HEIGHT - 8 + BAR_HEIGHT);
 	glEnd();
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_TRIANGLES);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 1, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 8, y * CELL_HEIGHT + 4 + 3 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 1, y * CELL_HEIGHT + 4 + 4 + 3 + BAR_HEIGHT);
+	glEnd();
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_LINES);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 3 - 2, (y + 1) * CELL_HEIGHT - 9 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH * 2 / 3 + 2, (y + 1) * CELL_HEIGHT - 9 + BAR_HEIGHT);
+	glEnd();
+}
+
+void Printer::drawBadFlag(int x, int y)
+{
+	glColor3f(0.8f, 0.8f, 0.8f);
+	glBegin(GL_QUADS);
+	glVertex2f(x * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
+	glVertex2f((x + 1) * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
+	glVertex2f((x + 1) * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
+	glEnd();
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_LINES);
 	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 3, y * CELL_HEIGHT + 3 + 3 + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + 3 + 3 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, (y + 1) * CELL_HEIGHT - 8 + BAR_HEIGHT);
+	glEnd();
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_TRIANGLES);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 1, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 8, y * CELL_HEIGHT + 4 + 3 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 1, y * CELL_HEIGHT + 4 + 4 + 3 + BAR_HEIGHT);
+	glEnd();
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glBegin(GL_LINES);
+	glVertex2f(x * CELL_WIDTH + 3, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
+	glVertex2f((x + 1) * CELL_WIDTH - 3, (y + 1) * CELL_HEIGHT - 3 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + 3, (y + 1) * CELL_HEIGHT - 3 + BAR_HEIGHT);
+	glVertex2f((x + 1) * CELL_WIDTH - 3, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
+	glEnd();
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glBegin(GL_LINES);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 3 - 2, (y + 1) * CELL_HEIGHT - 9 + BAR_HEIGHT);
+	glVertex2f(x * CELL_WIDTH + CELL_WIDTH * 2 / 3 + 2, (y + 1) * CELL_HEIGHT - 9 + BAR_HEIGHT);
 	glEnd();
 }
 
@@ -123,34 +162,7 @@ void Printer::drawOpenedField(int x, int y)
 	glEnd();
 }
 
-void Printer::drawBadFlag(int x, int y)
-{
-	glColor3f(0.8f, 0.8f, 0.8f);
-	glBegin(GL_QUADS);
-	glVertex2f(x * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glEnd();
-	glColor3f(0.0f, 0.0f, 0.0f);
-	glBegin(GL_LINES);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, (y + 2) * CELL_HEIGHT - 3 + BAR_HEIGHT);
-	glEnd();
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glBegin(GL_TRIANGLES);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 - 3, y * CELL_HEIGHT + 3 + 3 + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + 3 + 3 + BAR_HEIGHT);
-	glEnd();
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glBegin(GL_LINES);
-	glVertex2f(x * CELL_WIDTH + 3, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH - 3, (y + 1) * CELL_HEIGHT - 3 + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH + 3, (y + 1) * CELL_HEIGHT - 3 + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH - 3, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
-	glEnd();
-}
+
 
 void Printer::drawTargetMine(int x, int y)
 {
@@ -251,8 +263,17 @@ void Printer::drawTimer(std::string str)
 	glVertex2f(0, Printer::BAR_HEIGHT);
 	glEnd();
 	glColor3f(1.0f, 0.0f, 0.0f);
-	glRasterPos2f(1.5 * CELL_WIDTH, BAR_HEIGHT - 7);
+	glRasterPos2f(1.3 * CELL_WIDTH, BAR_HEIGHT - 7);
+
+	int count = 1;
 	for (char c : str)
+	{	
+		if (count == 4 && c == '.')
+			break;
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+		if (count == 4)
+			break;
+		count++;
+	}
 	glEnd();
 }

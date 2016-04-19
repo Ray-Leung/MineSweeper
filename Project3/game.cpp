@@ -113,7 +113,7 @@ Game::Game(int n)
 	}
 }
 
-void Game::draw(int sec)
+void Game::draw(float sec)
 {
 	static int xx = -1, yy = -1;
 	Printer p;
@@ -127,13 +127,18 @@ void Game::draw(int sec)
 	if (!gameState())
 	{	
 		if (sec != 0)
-			second = std::to_string(sec / 1000);
+		{
+			double t = sec / 1000;
+			second = std::to_string(t);
+			
+		}
 		p.drawTimer(second);
 		prevTime = sec;
 	}
 	else
-	{
-		second = std::to_string(prevTime / 1000);
+	{	
+		float t = prevTime / 1000;
+		second = std::to_string(t);
 		p.drawTimer(second);
 	}
 

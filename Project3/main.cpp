@@ -1,9 +1,14 @@
 #include <gl\freeglut.h>
 #include <iostream>
+#include <random>
 #include "game.h"
 #include "printer.h"
 
 using namespace std;
+
+random_device rd;
+mt19937 gen(rd());
+uniform_int_distribution<int> dis(0, 2);
 Game game;
 void display();
 void mouse(int button, int state, int x, int y);
@@ -53,10 +58,15 @@ void mouse(int button, int state, int x, int y)
 
 void reset()
 {
-
+	num = dis(gen);
 	game = Game::Game(num);
 	FIRSTCLICK = true;
 	time = 0;
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glutReshapeWindow(Game::Width * Printer::CELL_WIDTH, Game::Height * Printer::CELL_HEIGHT + Printer::BAR_HEIGHT);
+	glOrtho(0, Game::Width * Printer::CELL_WIDTH, Game::Height * Printer::CELL_HEIGHT + Printer::BAR_HEIGHT, 0, -1.0, 1.0);
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 
 
@@ -82,7 +92,7 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 
-	cin >> num;
+	num = dis(gen);
 	game = Game::Game(num);
 	
 	glutInitWindowSize(Game::Width * Printer::CELL_WIDTH, Game::Height * Printer::CELL_HEIGHT + Printer::BAR_HEIGHT);
@@ -94,7 +104,7 @@ int main(int argc, char **argv)
 	glOrtho(0, Game::Width * Printer::CELL_WIDTH, Game::Height * Printer::CELL_HEIGHT + Printer::BAR_HEIGHT, 0, -1.0, 1.0);
 	glutDisplayFunc(display);
 	glutMouseFunc(mouse);
-	timer_func(1000);
+	timer_func(130);
 	glutMainLoop();
 
 	return 0;
