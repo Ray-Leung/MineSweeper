@@ -184,7 +184,7 @@ void Game::draw(float sec)
 							for (std::vector<int> v : mines)
 							{
 								int x0 = v[0], y0 = v[1];
-								if ((x0 == x && y0 == y) || field[x0][y0].state == FLAG) continue;
+								if ((x0 == x && y0 == y) || xx < 0 || xx >= Width || yy < 0 || yy >= Height || field[x0][y0].state == FLAG) continue;
 								open(x0, y0);
 								p.drawMine(x0, y0);
 								flag = true;
@@ -217,6 +217,24 @@ void Game::open(int x, int y)
 {	
 	if (field[x][y].state == FLAG)
 		return;
+	if (field[x][y].state == OPENED)
+	{	
+		int flagCount = 0;
+		for (int xx = x - 1; xx <= x + 1; xx++)
+			for (int yy = y - 1; yy <= y + 1; yy++)
+			{
+				if ((xx == x && yy == y) || xx < 0 || xx >= Width || yy < 0 || yy >= Height) continue;
+				if (field[xx][yy].state == FLAG) flagCount++;
+			}
+		if (flagCount == field[x][y].mineAround)
+		{
+			for (int xx = x - 1; xx <= x + 1; xx++)
+				for (int yy = y - 1; yy <= y + 1; yy++)
+				{
+					if ((xx == x && yy == y) || xx < 0 || xx >= Width || yy < 0 || yy >= Height || field[xx][yy].state == FLAG) continue;							field[xx][yy].state = OPENED;
+					}
+				}
+	}
 	field[x][y].state = OPENED;
 }
 
