@@ -15,6 +15,7 @@ public:
 
 	Game(int);
 	Game();
+	Game(int, int, int);
 	std::vector<std::vector<int>> mines;
 	void draw(float sec);
 	void open(int x, int y);
@@ -26,7 +27,7 @@ public:
 private:
 	struct Cell
 	{
-		State state;
+		State state = CLOSED;
 		bool hasMine = false;
 		int mineAround = 0;
 

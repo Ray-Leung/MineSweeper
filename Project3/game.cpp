@@ -22,58 +22,27 @@ Game::Game()
 	numOfMines = 10;
 	mineOpen = false;
 	flags = 0;
-
-	for (int i = 0; i < 10; i++)
-	{
-		int x1, y1;
-		do
-		{
-			x1 = disWidth(gen);
-			y1 = disHeight(gen);
-		} while (field[x1][y1].hasMine);
-		field[x1][y1].hasMine = true;
-		mines.push_back({ x1, y1 });
-	}
-
-	for (int y = 0; y < Height; y++)
-	{
-		for (int x = 0; x < Width; x++)
-		{
-			field[x][y].state = CLOSED;
-			field[x][y].mineAround = 0;
-			if (!field[x][y].hasMine)
-			{
-
-				for (int y1 = y - 1; y1 <= y + 1; y1++)
-				{
-					for (int x1 = x - 1; x1 <= x + 1; x1++)
-					{
-						if ((x1 == x && y1 == y) || x1 < 0 || x1 >= Width || y1 < 0 || y1 >= Height) continue;
-
-						if (field[x1][y1].hasMine)
-						{
-							field[x][y].mineAround++;
-						}
-					}
-				}
-			}
-		}
-	}
 }
 
 Game::Game(int n)
 {	
 	Width = width[n];
 	Height = height[n];
+	numOfMines = mine[n];
+	mineOpen = false;
+	flags = 0;
+}
+
+Game::Game(int n, int x, int y)
+{
+	mineOpen = false;
+	flags = 0;
+	numOfMines = mine[n];
+
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<int> disHeight(0, Height - 1);
 	std::uniform_int_distribution<int> disWidth(0, Width - 1);
-	
-	numOfMines = mine[n];
-
-	mineOpen = false;
-	flags = 0;
 
 	for (int i = 0; i < numOfMines; i++)
 	{
@@ -82,15 +51,15 @@ Game::Game(int n)
 		{
 			x1 = disWidth(gen);
 			y1 = disHeight(gen);
-		} while (field[x1][y1].hasMine);
+		} while (field[x1][y1].hasMine || (x1 >= x - 1 && x1 <= x + 1 && y1 >= y - 1 && y1 <= y + 1));
 		field[x1][y1].hasMine = true;
 		mines.push_back({ x1, y1 });
 	}
-	
+
 	for (int y = 0; y < Height; y++)
 	{
 		for (int x = 0; x < Width; x++)
-		{	
+		{
 			field[x][y].state = CLOSED;
 			field[x][y].mineAround = 0;
 			if (!field[x][y].hasMine)
@@ -118,7 +87,7 @@ void Game::draw(float sec)
 	static int xx = -1, yy = -1;
 	Printer p;
 	bool flag;
-	static int prevTime = 0;
+	int prevTime = 0;
 	std::string second = "0.00";
 	
 	std::string str = std::to_string(numOfMines - showFlags());
@@ -259,7 +228,7 @@ void Game::mark(int x, int y)
 }
 
 bool Game::gameState()
-{
+{	
 	return (mineOpen || checkMatch());
 }
 

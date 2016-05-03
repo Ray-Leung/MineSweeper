@@ -20,3 +20,5 @@ private:
 	
 };
 
+void drawSubWindow();
+

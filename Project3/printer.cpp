@@ -6,6 +6,7 @@
 #include <iostream>
 
 const double Pi = 3.1415926;
+
 void Printer::drawClosedField(int x, int y)
 {
 	glColor3f(0.8f, 0.8f, 0.8f);
@@ -274,6 +275,81 @@ void Printer::drawTimer(std::string str)
 		if (count == 4)
 			break;
 		count++;
+	}
+	glEnd();
+}
+
+void drawSubWindow()
+{
+
+	glColor3f(0.8f, 0.8f, 0.8f);
+	glBegin(GL_QUADS);
+	glVertex2f(0, 0);
+	glVertex2f(0, 0.6 * 9 * 30);
+	glVertex2f(0.6 * 9 * 30, 0.7 * 9 * 30);
+	glVertex2f(0.6 * 9 * 30, 0);
+	glEnd();
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glBegin(GL_LINES);
+	glVertex2f(8, 15);
+	glVertex2f(8, 45);
+	glVertex2f(8, 15);
+	glVertex2f(0.6 * 9 * 30 - 8, 15);
+	glEnd();
+	glColor3f(0.2f, 0.2f, 0.2f);
+	glBegin(GL_LINES);
+	glVertex2f(0.6 * 9 * 30 - 8, 15);
+	glVertex2f(0.6 * 9 * 30 - 8, 45);
+	glVertex2f(0.6 * 9 * 30 - 8, 45);
+	glVertex2f(8, 45);
+	glEnd();
+	glRasterPos2f(50, 35);
+	for (char c : "Beginner")
+	{
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+	}
+	glEnd();
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glBegin(GL_LINES);
+	glVertex2f(8, 60);
+	glVertex2f(8, 90);
+	glVertex2f(8, 60);
+	glVertex2f(0.6 * 9 * 30 - 8, 60);
+	glEnd();
+	glColor3f(0.2f, 0.2f, 0.2f);
+	glBegin(GL_LINES);
+	glVertex2f(0.6 * 9 * 30 - 8, 60);
+	glVertex2f(0.6 * 9 * 30 - 8, 90);
+	glVertex2f(0.6 * 9 * 30 - 8, 90);
+	glVertex2f(8, 90);
+	glEnd();
+	glRasterPos2f(35, 80);
+	for (char c : "Intermediate")
+	{
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+	}
+	glEnd();
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glBegin(GL_LINES);
+	glVertex2f(8, 105);
+	glVertex2f(8, 135);
+	glVertex2f(8, 105);
+	glVertex2f(0.6 * 9 * 30 - 8, 105);
+	glEnd();
+	glColor3f(0.2f, 0.2f, 0.2f);
+	glBegin(GL_LINES);
+	glVertex2f(0.6 * 9 * 30 - 8, 105);
+	glVertex2f(0.6 * 9 * 30 - 8, 135);
+	glVertex2f(0.6 * 9 * 30 - 8, 135);
+	glVertex2f(8, 135);
+	glEnd();
+	glRasterPos2f(55, 125);
+	for (char c : "Expert")
+	{
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
 	}
 	glEnd();
 }
