@@ -102,16 +102,16 @@ void Printer::drawOpenedField(int x, int y, int minesAround)
 		switch (minesAround)
 		{
 		case 1:
-			glColor3f(0.0f, 1.0f, 0.0f);
+			glColor3f(0.0f, 0.0f, 0.8f);
 			break;
 		case 2:
-			glColor3f(0.0f, 0.0f, 1.0f);
+			glColor3f(0.0f, 1.0f, 0.0f);
 			break;
 		case 3:
 			glColor3f(1.0f, 0.0f, 0.0f);
 			break;
 		case 4:
-			glColor3f(0.0f, 0.7f, 0.0f);
+			glColor3f(0.0f, 0.0f, 1.0f);
 			break;
 		case 5:
 			glColor3f(0.5f, 0.4f, 0.0f);
@@ -120,13 +120,13 @@ void Printer::drawOpenedField(int x, int y, int minesAround)
 			glColor3f(0.0f, 0.8f, 0.5f);
 			break;
 		case 7:
-			glColor3f(0.1f, 0.1f, 0.1f);
+			glColor3f(0.0f, 0.0f, 0.0f);
 			break;
 		case 8:
-			glColor3f(0.3f, 0.3f, 0.3f);
+			glColor3f(0.8f, 0.8f, 0.8f);
 			break;
 		}
-		glRasterPos2f(x * CELL_WIDTH + (29 - 9) / 2 + 1, (y + 1) * CELL_HEIGHT - 4 + BAR_HEIGHT);
+		glRasterPos2f(x * CELL_WIDTH + (29 - 9) / 2 + 1, (y + 1) * CELL_HEIGHT - 10 + BAR_HEIGHT);
 		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, (minesAround + '0'));
 		glEnd();
 	}
@@ -305,6 +305,7 @@ void drawSubWindow()
 	glVertex2f(8, 45);
 	glEnd();
 	glRasterPos2f(50, 35);
+	glColor3f(0.0f, 0.0f, 0.0f);
 	for (char c : "Beginner")
 	{
 		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
