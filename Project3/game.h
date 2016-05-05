@@ -22,8 +22,7 @@ public:
 	void mark(int x, int y);
 	bool gameState();
 	int showFlags();
-	void timer(int sec);
-
+	
 private:
 	struct Cell
 	{

@@ -9,13 +9,7 @@ const double Pi = 3.1415926;
 
 void Printer::drawClosedField(int x, int y)
 {
-	glColor3f(0.8f, 0.8f, 0.8f);
-	glBegin(GL_QUADS);
-	glVertex2f(x * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glEnd();
+
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_LINES);
 	glVertex2f(x * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
@@ -35,13 +29,7 @@ void Printer::drawClosedField(int x, int y)
 
 void Printer::drawFlag(int x, int y)
 {
-	glColor3f(0.8f, 0.8f, 0.8f);
-	glBegin(GL_QUADS);
-	glVertex2f(x * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glEnd();
+	
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINES);
 	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
@@ -62,13 +50,7 @@ void Printer::drawFlag(int x, int y)
 
 void Printer::drawBadFlag(int x, int y)
 {
-	glColor3f(0.8f, 0.8f, 0.8f);
-	glBegin(GL_QUADS);
-	glVertex2f(x * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, y * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f((x + 1) * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f(x * CELL_WIDTH, (y + 1) * CELL_HEIGHT + BAR_HEIGHT);
-	glEnd();
+	
 	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_LINES);
 	glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
@@ -175,6 +157,7 @@ void Printer::drawTargetMine(int x, int y)
 		glVertex2f(x * CELL_WIDTH + CELL_WIDTH / 2 + 9.0f * cos(2 * Pi * i / 13), y * CELL_HEIGHT + CELL_HEIGHT / 2 + 9.0f * sin(2 * Pi * i / 13) + BAR_HEIGHT);
 	}
 	glEnd();
+
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_LINES);
 	glVertex2f(x * CELL_WIDTH + 3, y * CELL_HEIGHT + 3 + BAR_HEIGHT);
@@ -188,13 +171,7 @@ void Printer::drawRestButton()
 {	
 	
 	double mid = (Game::Width + 1) / 2;
-	glColor3f(0.8f, 0.8f, 0.8f);
-	glBegin(GL_QUADS);
-	glVertex2f(0, 0);
-	glVertex2f(0, BAR_HEIGHT);
-	glVertex2f(Game::Width * CELL_WIDTH, Game::Height * CELL_HEIGHT + BAR_HEIGHT);
-	glVertex2f(Game::Width * CELL_WIDTH, 0);
-	glEnd();
+
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_LINES);
 	glVertex2f((mid - 1) * CELL_WIDTH, 0);
@@ -202,6 +179,7 @@ void Printer::drawRestButton()
 	glVertex2f((mid - 1) * CELL_WIDTH, 0);
 	glVertex2f((mid - 1) * CELL_WIDTH, BAR_HEIGHT - 1);
 	glEnd();
+
 	glColor3f(0.2f, 0.2f, 0.2f);
 	glBegin(GL_LINES);
 	glVertex2f(mid * CELL_WIDTH - 1, 0);
@@ -209,6 +187,7 @@ void Printer::drawRestButton()
 	glVertex2f((mid - 1) * CELL_WIDTH, BAR_HEIGHT - 1);
 	glVertex2f(mid * CELL_WIDTH - 1, BAR_HEIGHT - 1);
 	glEnd();
+
 	glColor3f(1.0f, 1.0f, 0.0f);
 	glBegin(GL_POLYGON);
 	for (size_t i = 0; i < 20; i++)
@@ -221,6 +200,7 @@ void Printer::drawRestButton()
 	glVertex2f((mid - 1) * CELL_WIDTH + CELL_WIDTH  / 3 + 2, BAR_HEIGHT / 3);
 	glVertex2f(mid * CELL_WIDTH - CELL_WIDTH  / 3 + 2, BAR_HEIGHT / 3);
 	glEnd();
+
 	glPointSize(6.0f);
 	glBegin(GL_LINES);
 	glVertex2f((mid - 1) * CELL_WIDTH + 3, BAR_HEIGHT / 3);
@@ -230,6 +210,7 @@ void Printer::drawRestButton()
 	glVertex2f((mid - 1) * CELL_WIDTH + 3, BAR_HEIGHT / 3 + 1);
 	glVertex2f((mid - 1) * CELL_WIDTH + 1, BAR_HEIGHT / 3 + 1);
 	glEnd();
+
 	glLineWidth(2.4f);
 	glBegin(GL_LINES);
 	glVertex2f((mid - 1) * CELL_WIDTH + CELL_WIDTH * 2 / mid + 2, BAR_HEIGHT * 3 / 5);
@@ -281,15 +262,6 @@ void Printer::drawTimer(std::string str)
 
 void drawSubWindow()
 {
-
-	glColor3f(0.8f, 0.8f, 0.8f);
-	glBegin(GL_QUADS);
-	glVertex2f(0, 0);
-	glVertex2f(0, 0.6 * 9 * 30);
-	glVertex2f(0.6 * 9 * 30, 0.7 * 9 * 30);
-	glVertex2f(0.6 * 9 * 30, 0);
-	glEnd();
-
 	glColor3f(1.0f, 1.0f, 1.0f);
 	glBegin(GL_LINES);
 	glVertex2f(8, 15);
@@ -304,6 +276,7 @@ void drawSubWindow()
 	glVertex2f(0.6 * 9 * 30 - 8, 45);
 	glVertex2f(8, 45);
 	glEnd();
+
 	glRasterPos2f(50, 35);
 	glColor3f(0.0f, 0.0f, 0.0f);
 	for (char c : "Beginner")
@@ -326,6 +299,7 @@ void drawSubWindow()
 	glVertex2f(0.6 * 9 * 30 - 8, 90);
 	glVertex2f(8, 90);
 	glEnd();
+
 	glRasterPos2f(35, 80);
 	for (char c : "Intermediate")
 	{
@@ -347,6 +321,7 @@ void drawSubWindow()
 	glVertex2f(0.6 * 9 * 30 - 8, 135);
 	glVertex2f(8, 135);
 	glEnd();
+
 	glRasterPos2f(55, 125);
 	for (char c : "Expert")
 	{

@@ -6,9 +6,6 @@
 
 using namespace std;
 
-random_device rd;
-mt19937 gen(rd());
-uniform_int_distribution<int> dis(0, 2);
 Game game;
 void display();
 void mouse(int button, int state, int x, int y);
@@ -48,20 +45,22 @@ void mouse(int button, int state, int x, int y)
 
 			if (FIRSTCLICK)
 				game = Game::Game(num, x / Printer::CELL_WIDTH, (y - Printer::BAR_HEIGHT - 4) / Printer::CELL_HEIGHT);
-
+				FIRSTCLICK = false;
 			if (!game.gameState() && y > Printer::BAR_HEIGHT)
 			{
-				FIRSTCLICK = false;
+				
 				game.open(x / Printer::CELL_WIDTH, (y - Printer::BAR_HEIGHT - 4) / Printer::CELL_HEIGHT);
 			}
 				break;
 
 		case GLUT_RIGHT_BUTTON:
-			FIRSTCLICK = false;
 			if (y < Printer::BAR_HEIGHT)
 				break;
-
+			if (FIRSTCLICK)
+				game = Game::Game(num, 0, 0);
+				FIRSTCLICK = false;
 			if (!game.gameState())
+				
 				game.mark(x / Printer::CELL_WIDTH, (y - Printer::BAR_HEIGHT - 4)/ Printer::CELL_HEIGHT);
 			break;
 
@@ -97,12 +96,17 @@ void timer_func(int n)
 	{	
 		goto end;
 	}
+	else if(game.gameState())
+	{
+		return;
+	}
 	else 
 	{
 		time += n;
 		glutPostRedisplay();
 	}
 end:
+	
 	glutTimerFunc(n, timer_func, n);
 }
 
@@ -114,7 +118,7 @@ void createSubWindow()
 		, 120 + (Game::Height * Printer:: CELL_HEIGHT + Printer::BAR_HEIGHT) / 2 - (0.6 * 9 * 30) / 2);
 	subwindow = glutCreateWindow(" ");
 	glutSetWindow(subwindow);
-	glClearColor(0.0f, 0.0f, 0.0f, 0);
+	glClearColor(0.8f, 0.8f, 0.8f, 0);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0, 0.6 * Game::Width * Printer::CELL_WIDTH,
@@ -171,7 +175,7 @@ int main(int argc, char **argv)
 	glutInitWindowSize(Game::Width * Printer::CELL_WIDTH, Game::Height * Printer::CELL_HEIGHT + Printer::BAR_HEIGHT);
 	glutInitWindowPosition(200, 120);
 	mainWindow = glutCreateWindow("MINE SWEEPER");
-	glClearColor(0.6f, 0.6f, 0.6f, 1);
+	glClearColor(0.8f, 0.8f, 0.8f, 0);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0, Game::Width * Printer::CELL_WIDTH, Game::Height * Printer::CELL_HEIGHT + Printer::BAR_HEIGHT, 0, -1.0, 1.0);

@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 
-int width[3] = { 9, 16, 30 };
-int height[3] = { 9, 16, 16 };
-int mine[3] = { 10, 40, 99 };
+const int width[3] = { 9, 16, 30 };
+const int height[3] = { 9, 16, 16 };
+const int mine[3] = { 10, 40, 99 };
 int Game::Width = 9;
 int Game::Height = 9;
 
@@ -87,7 +87,6 @@ void Game::draw(float sec)
 	static int xx = -1, yy = -1;
 	Printer p;
 	bool flag;
-	int prevTime = 0;
 	std::string second = "0.00";
 	
 	std::string str = std::to_string(numOfMines - showFlags());
@@ -102,11 +101,10 @@ void Game::draw(float sec)
 			
 		}
 		p.drawTimer(second);
-		prevTime = sec;
 	}
 	else
 	{	
-		float t = prevTime / 1000;
+		double t = sec / 1000;
 		second = std::to_string(t);
 		p.drawTimer(second);
 	}
